@@ -5,25 +5,28 @@ public class Main {
 
 
     public static void main(String[] args) {
-	// write your code here
 
-System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса");
 
-        System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса");
+        // задание 1
+        System.out.println( "исходный массив " );
+        int [] arr = {1,0,1,0,0,0,1,1,0};
 
-        System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса");
+          for (int i=0; i < arr.length; i++)
+            {System.out.print( arr [i] + " ");};
 
-        System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса");
+        System.out.println();
 
-        System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса");
 
-        System.out.println("Hellow World");
-        System.out.println( "Коммит для запроса888");
+        for (int i=0; i < arr.length; i++){
+            if (arr[i]== 0) {arr[i] = 1;}
+            else {arr[i] = 0;};
+            System.out.print (arr[i]+ " ");
+        }
+        System.out.println();
+        System.out.println("инвертированыый массив из " + arr.length + " элементов" );
+
+System.out.println();
+
 
 
 
