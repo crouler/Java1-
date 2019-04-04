@@ -1,23 +1,20 @@
 package com.company;
 
 public class Main {
+    public static void printArrOneDim(int[] mass) {
 
-    public static void printArrOneDim ( int[] mass){
-
-        for (int i=0; i < mass.length; i++)        // вывод оригинала
-        {System.out.print( mass [i] + " ");};
-
-
-
-
-
+        for (int i = 0; i < mass.length; i++)        // вывод оригинала
+        {
+            System.out.print(mass[i] + " ");
+        }
+        ;
 
     }
 
-   public static void printArrTwoDim ( int[][] mass){
+    public static void printArrTwoDim(int[][] mass) {
 
-        for (int i=0; i < mass.length; i++ ){
-            for (int j = 0; j < mass.length; j++){
+        for (int i = 0; i < mass.length; i++) {
+            for (int j = 0; j < mass.length; j++) {
                 System.out.print(mass[i][j] + "  ");
             }
             System.out.println();
@@ -25,61 +22,132 @@ public class Main {
 
 
     }
-    public static void massElemMult ( int[] anyarray){          // задание 3
 
-        for (int i=0; i < anyarray.length; i++ ){
-            if (anyarray[i] < 6)  anyarray[i] *= 3;
+    public static void massElemMult(int[] anyarray) {          // задание 3
+
+        for (int i = 0; i < anyarray.length; i++) {
+            if (anyarray[i] < 6) anyarray[i] *= 3;
         }
 
-        for (int i=0; i < anyarray.length; i++){
-            System.out.print (anyarray[i]+ " ");
+        for (int i = 0; i < anyarray.length; i++) {
+            System.out.print(anyarray[i] + " ");
         }
 
 
     }
 
-    public static void arreyInvert( int [] anyarray){           // задание 1
-        for (int i=0; i < anyarray.length; i++){
-            if (anyarray[i]== 0) {anyarray[i] = 1;}
-            else {anyarray[i] = 0;};
+    public static void arreyInvert(int[] anyarray) {           // задание 1
+        for (int i = 0; i < anyarray.length; i++) {
+            if (anyarray[i] == 0) {
+                anyarray[i] = 1;
+            } else {
+                anyarray[i] = 0;
+            }
+            ;
         }
         printArrOneDim(anyarray);
     }
 
-    public static void arreyVolumeMult( int [] anyarray){           // задание 2
-        for (int i=0; i < anyarray.length; i++){
+    public static void arreyVolumeMult(int[] anyarray) {           // задание 2
+        for (int i = 0; i < anyarray.length; i++) {
             anyarray[i] = (i * 3);
-            System.out.print (anyarray[i]+ " ");
+            System.out.print(anyarray[i] + " ");
+        }
+        ;
+
+    }
+
+    public static void diagonal( int [][] anyarray) {                // задание 4
+
+
+        for (int i = 0, j = anyarray.length -1; i<anyarray.length ; i++, j--){
+            anyarray[i][i] = 1;
+            anyarray[i][j] = 1;
+
+        };
+        printArrTwoDim(anyarray);
+    }
+
+    public static void minMaxOneDimArr(int [] anyarray){            // задание 5
+        System.out.println("Исходный одномерный массив");
+        printArrOneDim(anyarray);
+        System.out.println();
+        int min = anyarray[0];
+        int max = anyarray[0];
+
+        for (int i = 0; i < anyarray.length; i++) {
+            if (anyarray[i] > max) {max = anyarray[i];}
+            else {if (anyarray[i]< min) {min = anyarray[i];
+                }};
+        };
+        System.out.println("Минимальное  значение = "+ min);
+        System.out.println("Максимальное значение = "+ max);
+        System.out.println();
+    }
+    public static void happyArray(int [] anyarray){                     // задание 6
+        int sumElemArr = 0, tempSumElem = 0, happyPosition = 0;
+//        int tempSumElem = 0;
+//        int happyPosition = 0;
+
+
+        for (int i = 0; i < anyarray.length; i++) {
+                sumElemArr += anyarray[i];
+        };
+//            System.out.println("__" + sumElemArr);
+        for (int i = 0; i < anyarray.length; i++) {
+                tempSumElem += anyarray[i];
+                if (tempSumElem == (sumElemArr/2)) {happyPosition = i;
+                continue;
+                };
         };
 
-    }
+        if (happyPosition != 0) {
 
-    public static void diagonal( int [][] anyarray){
-        for (int i=0; i < anyarray.length; i++){
-            anyarray[i][i] = 1;
-//            switch(i!=-1){
-//                case
-//            }
-//            anyarray[i][i] = 1; //anyarray[i][anyarray.length-i-1];
+            System.out.println();
+            for (int i = 0; i < happyPosition; i++) {
+                System.out.print(anyarray[i]+ ", ");
+            };
+            System.out.print( "|| ");
+            for (int i = happyPosition; i < anyarray.length; i++ ){
+                System.out.print(anyarray[i] + ", ");
+            };
+            System.out.println("  Вам сегодня везет -> true -> вы выйграли!!! хотите удвоить? ");
+        };
+        if ((happyPosition == 0)){
+            printArrOneDim(anyarray);
+            System.out.println("  Ваш массив не выйграл -> false -> попробуйте еще разок ;-) ");
         }
+    }
+
+
+    public static void scewArray (int scew, int [] anyarray){               // задание 7
+
+
+
+
 
     }
 
 
 
 
-        public static void main(String[] args) {
+
+
+
+
+
+    public static void main(String[] args) {
 
 
         // задание 1
-        int [] arr = {1,0,1,0,0,0,1,1,0};
+        int[] arr = {1, 0, 1, 0, 0, 0, 1, 1, 0};
         System.out.println("    Задание 1");
 
         printArrOneDim(arr);
-        System.out.println( "исходный массив" );
+        System.out.println("исходный массив");
         System.out.println();
         arreyInvert(arr);
-        System.out.println("инвертированыый массив из " + arr.length + " элементов" );
+        System.out.println("инвертированыый массив из " + arr.length + " элементов");
         System.out.println();
 
         // задание 2
@@ -90,16 +158,18 @@ public class Main {
         System.out.println();
 
         // задание 3
-       System.out.println("    Задание 3");
-       int[] arr3 = {1,5,3,2,11,4,5,2,4,8,9,1};
-        for (int i=0; i < arr3.length; i++){
-            if (arr3[i]<6 && arr3[i]>3)
-                {System.out.print (arr3[i]+ "  ");}
-            else {System.out.print (arr3[i]+ " ");}
+        System.out.println("    Задание 3");
+        int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int i = 0; i < arr3.length; i++) {
+            if (arr3[i] < 6 && arr3[i] > 3) {
+                System.out.print(arr3[i] + "  ");
+            } else {
+                System.out.print(arr3[i] + " ");
+            }
         }
-        System.out.println(" Исходный массив ");
+        System.out.println(" Исходный одномерный массив ");
         massElemMult(arr3);
-        System.out.println(" Обработанный по условию массив ");
+        System.out.println(" Обработанный по условию одномерный массив ");
         System.out.println();
 
 
@@ -107,9 +177,37 @@ public class Main {
 
         System.out.println("    Задание 4");
         int matrixRate = 5;
-        int[] [] arr4 = new int [matrixRate][matrixRate];
+        int[][] arr4 = new int[matrixRate][matrixRate];
         diagonal(arr4);
-        printArrTwoDim(arr4);
+        System.out.println();
+
+        // Задание 5
+
+        System.out.println("    Задание 5");
+        int[] arr5 = {3,7,9,-1,1,5,-89,1,90909};
+        minMaxOneDimArr(arr5);
+
+        // задание 6
+
+        System.out.println("    Задание 6");
+        int [] arr6 = {2,2,2,2,2,8,2};
+        happyArray(arr6);
+        System.out.println();
+
+        // задание 7
+        System.out.println("    Задание 7");
+        System.out.println();
+        int [] arr7 = {1,2,3,4,5,6,7};
+        int scew = 3;
+
+
+
+
+
+
+
+
+
 
 
 
